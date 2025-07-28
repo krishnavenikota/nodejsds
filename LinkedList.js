@@ -74,10 +74,13 @@ class LinkedList{
         return false;
     }
     
-    kthElement(k){
+    kthElement(size,k){
         let slow = this.head;
         let fast = this.head;
         let count = 0;
+        if(k > size){
+            return null;
+        }
         
         while(count < k){
             fast = fast.next;
@@ -115,5 +118,6 @@ let dataLL1 = [1, 2, 3, 4, 5];
 
 ll1.createList(dataLL1);
 ll1.printList();
+const c = ll1.kthElement(5, 10);
 
-console.log('\n','kth element',ll1.kthElement(4).data);
+console.log('\n','kth element',c ? c.data: 'no element in that place'  );
